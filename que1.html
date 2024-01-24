@@ -1,0 +1,48 @@
+ <html>
+<head>
+	<title>VIT Family</title>
+</head>
+<body>
+	<!-- Display picture -->
+	<img src="yourpicture.jpg" alt="Your Picture" id="profilepic">
+
+	<!-- Generate link to other page when picture is clicked -->
+	<script>
+		document.getElementById("profilepic").onclick = function() {
+			location.href = "otherpage.html";
+		};
+	</script>
+
+	<!-- Display running message -->
+	<p id="message">WELCOME TO VIT FAMILY !!!</p>
+
+	<!-- Display DE Morgan's theorem -->
+	<p>DE Morgan's theorem: y = a+b<sup>2</sup> = a<sup>2</sup> * b<sup>2</sup></p>
+
+	<!-- Other page (ask for name and registration number) -->
+	<!-- This page is linked to by the picture on the first page -->
+	<h1>Welcome to the VIT Family!</h1>
+	<form action="welcomemessage.php" method="post">
+		Name: <input type="text" name="name"><br>
+		Registration Number: <input type="text" name="registration"><br>
+		<input type="submit">
+	</form>
+</body>
+</html>
+The other page (otherpage.html in this example) will ask the user for their name and registration number. When the user submits the form, it will be sent to the welcomemessage.php page, which will display the welcome message with the user's name and registration number:
+
+Copy code
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Welcome Message</title>
+</head>
+<body>
+	<?php
+		$name = $_POST["name"];
+		$registration = $_POST["registration"];
+		echo "<h1>Welcome, $name!</h1>";
+		echo "Your registration number is: $registration";
+	?>
+</body>
+</html>
